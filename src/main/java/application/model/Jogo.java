@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -40,13 +37,13 @@ public class Jogo {
     private Set<Genero> generos = new HashSet<Genero>();
 
     @ManyToMany
-    @JoinTable(name = "jogos_possuem_generos",
+    @JoinTable(name = "jogos_possuem_plataformas",
         joinColumns = @JoinColumn(name = "id_jogo"),
         inverseJoinColumns = @JoinColumn(name = "id_plataforma")
     )
     private Set<Plataforma> plataformas = new HashSet<Plataforma>();
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_modo", nullable = false)
     private Modo modo;
 
