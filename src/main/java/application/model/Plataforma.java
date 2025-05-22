@@ -14,10 +14,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Plataforma {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String descricao;
 
-    
+
 }
