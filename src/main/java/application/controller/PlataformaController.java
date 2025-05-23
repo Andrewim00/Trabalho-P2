@@ -10,71 +10,69 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import application.model.Genero;
-import application.model.Modo;
-import application.repository.GeneroRepository;
-import application.repository.ModoRepository;
+import application.model.Plataforma;
+import application.repository.PlataformaRepository;
 
 @Controller
 @RequestMapping("/plataformas")
 public class PlataformaController {
 
     @Autowired
-    private ModoRepository modoRepo;
+    private PlataformaRepository plataformaRepo;
     
     @RequestMapping("/list")
     public String list(Model ui) {
-        ui.addAttribute("modos", modoRepo.findAll());
+        ui.addAttribute("plataformas", plataformaRepo.findAll());
 
-        return "/modos/list";
+        return "/plataformas/list";
     }
     @RequestMapping("/insert")
     public String insert(Model ui) {
-        ui.addAttribute("modos", modoRepo.findAll());
+        ui.addAttribute("plataformas", plataformaRepo.findAll());
 
-        return "/modos/insert";
+        return "/plataformas/insert";
     }
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public String insert(@RequestParam("descricao") String descricao){
-        Modo modo = new Modo();
-        modo.setDescricao(descricao);
-        modoRepo.save(modo);
+        Plataforma plataforma = new Plataforma();
+        plataforma.setDescricao(descricao);
+        plataformaRepo.save(plataforma);
 
-        return "redirect:/modos/list";
+        return "redirect:/plataformas/list";
     }
     @RequestMapping("/update/{id}")
     public String update(@PathVariable("id") long id, Model ui) {
-        Optional<Modo> resultado = modoRepo.findById(id);
+        Optional<Plataforma> resultado = plataformaRepo.findById(id);
         if (resultado.isPresent()) {
-            ui.addAttribute("modos", resultado.get());
-            return "/modos/update";
+            ui.addAttribute("plataformas", resultado.get());
+            return "/plataformas/update";
         }
-    return "redirect:/modos/list";
+    return "redirect:/plataformas/list";
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String update(@RequestParam("descricao") String descricao, @RequestParam("id") long id){
-        Optional<Modo> resultado = modoRepo.findById(id);
+        Optional<Plataforma> resultado = plataformaRepo.findById(id);
         if(resultado.isPresent()){
             resultado.get().setDescricao(descricao);
-            modoRepo.save(resultado.get());
+            plataformaRepo.save(resultado.get());
         }
 
-        return "redirect:/modos/list";
+        return "redirect:/plataformas/list";
     }
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable("id") long id, Model ui) {
-        Optional<Modo> resultado = modoRepo.findById(id);
+        Optional<Plataforma> resultado = plataformaRepo.findById(id);
         if (resultado.isPresent()) {
-            ui.addAttribute("modos", resultado.get());
-            return "/modos/delete";
+            ui.addAttribute("plataformas", resultado.get());
+            return "/plataformas/delete";
         }
-    return "redirect:/modos/list";
+    return "redirect:/plataformas/list";
     }
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public String delete(@RequestParam("id") long id){
-        modoRepo.deleteById(id);
+        plataformaRepo.deleteById(id);
         
-        return "redirect:/modos/list";
+        return "redirect:/plataformas/list";
     }
 }
