@@ -17,7 +17,7 @@ import application.repository.ModoRepository;
 
 @Controller
 @RequestMapping("/plataformas")
-public class PlataformaController {
+public class PlataforController {
 
     @Autowired
     private ModoRepository modoRepo;
