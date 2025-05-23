@@ -10,15 +10,16 @@
 </head>
 
 <body>
+    <div class="container">
     <h1>Edição de Modo</h1>
-
-    <form action="/modos/update" method="post">
-        <input type="hidden" name="id" value="${modos.id}">
-        <div>
-            <label class="form-label">Descrição do Modo</label>
-            <input class="form-control" type="text" name="descricao" value="${modos.descricao}">
-        </div>
-        <button class="btn btn-success" type="submit">Salvar</button>
-    </form>
+        <form action="/modos/update" method="post">
+            <input type="hidden" name="id" value="${modos.id}">
+            <div>
+                <label class="form-label">Descrição do Modo</label>
+                <input class="form-control" type="text" name="descricao" value="${modos.descricao}">
+            </div>
+            <button class="btn btn-success" type="submit">Salvar</button>
+        </form>
+    </div>
 </body>
 </html>

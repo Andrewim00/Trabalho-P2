@@ -10,12 +10,14 @@
     </head>
 
     <body>
-        <h1>Remover Plataforma</h1>
+        <div class="container">
+            <h1>Remover Plataforma</h1>
 
-        <p>Deseja mesmo EXCLUIR a Plataforma: ${plataformas.descricao} ?</p>
-        <form action="/plataformas/delete" method="post">
-            <input type="hidden" name="id" value="${plataformas.id}">
-            <button class="btn btn-danger" type="submit">Excluir</button>
-        </form>
+            <p>Deseja mesmo EXCLUIR a Plataforma: ${plataformas.descricao} ?</p>
+            <form action="/plataformas/delete" method="post">
+                <input type="hidden" name="id" value="${plataformas.id}">
+                <button class="btn btn-danger" type="submit">Excluir</button>
+            </form>
+        </div>
     </body>
 </html>

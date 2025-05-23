@@ -10,15 +10,17 @@
 </head>
 
 <body>
-    <h1>Edição de Gênero</h1>
+    <div class="container">
+        <h1>Edição de Gênero</h1>
 
-    <form action="/generos/update" method="post">
-        <input type="hidden" name="id" value="${generos.id}">
-        <div>
-            <label class="form-label">Nome do Gênero</label>
-            <input class="form-control" type="text" name="nome" value="${generos.nome}">
-        </div>
-        <button class="btn btn-success" type="submit">Salvar</button>
-    </form>
+        <form action="/generos/update" method="post">
+            <input type="hidden" name="id" value="${generos.id}">
+            <div>
+                <label class="form-label">Nome do Gênero</label>
+                <input class="form-control" type="text" name="nome" value="${generos.nome}">
+            </div>
+            <button class="btn btn-success" type="submit">Salvar</button>
+        </form>
+    </div>
 </body>
 </html>

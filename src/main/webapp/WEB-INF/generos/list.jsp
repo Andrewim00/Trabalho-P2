@@ -26,7 +26,7 @@
                         <td>${g.nome}</td>
                         <td>
                             <a href="/generos/update/${g.id}" class="btn btn-primary">Editar </a>
-                            <a href="/generos/delete/${g.id}" class="btn btn-primary">Excluir </a>
+                            <a href="/generos/delete/${g.id}" class="btn btn-danger">Excluir </a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -121,4 +121,26 @@ public class JogoController {
 
         return "redirect:/jogos/list";
     }
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable("id") long id, Model ui){
+
+        Optional<Jogo> resultado = jogoRepo.findById(id);
+
+        if (resultado.isPresent()){
+            ui.addAttribute("jogo", resultado.get());
+            return "/jogos/delete";
+        }
+
+        return "redirect:/jogos/list";
+
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam("id") long id){
+
+        jogoRepo.deleteById(id);
+
+        return "redirect:/jogos/list";
+    }
 }

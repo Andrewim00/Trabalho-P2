@@ -26,7 +26,7 @@
                         <td>${g.descricao}</td>
                         <td>
                             <a href="/plataformas/update/${g.id}" class="btn btn-primary">Editar </a>
-                            <a href="/plataformas/delete/${g.id}" class="btn btn-primary">Excluir </a>
+                            <a href="/plataformas/delete/${g.id}" class="btn btn-danger">Excluir </a>
                         </td>
                     </tr>
                 </c:forEach>

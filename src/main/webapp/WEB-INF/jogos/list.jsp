@@ -18,9 +18,9 @@
                 <tr>
                     <th>id</th>
                     <th>Título</th>
+                    <th>Modo</th>
                     <th>Gêneros</th>
                     <th>Plataformas</th>
-                    <th>Modo</th>
                     <th>&nbsp;</th>
                 </tr>
 
