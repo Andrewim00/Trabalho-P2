@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import application.model.Genero;
 import application.model.Modo;
-import application.repository.GeneroRepository;
 import application.repository.ModoRepository;
 
 @Controller

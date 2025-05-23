@@ -44,7 +44,7 @@
                     <label class="form-label">Plataformas</label>
                     <c:forEach var="p" items="${plataformas}">
                         <div class="form-check">
-                            <input ${jogos.plataformas.contains(p) ? "checked" : ""} type="checkbox" name="plataformas value="${p.id}" class="form-check-input" />
+                            <input ${jogos.plataformas.contains(p) ? "checked" : ""} type="checkbox" name="plataformas" value="${p.id}" class="form-check-input" />
                             <label class="form-check-label">${p.descricao}</label>
                         </div>
                     </c:forEach>

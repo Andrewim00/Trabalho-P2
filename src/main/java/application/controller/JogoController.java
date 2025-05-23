@@ -82,13 +82,13 @@ public class JogoController {
         ui.addAttribute("modos", modoRepo.findAll());
         return "/jogos/update";
     }
+
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String update(@RequestParam("id") long id,
     @RequestParam("generos") long[] generos,
     @RequestParam("plataformas") long[] plataformas,
     @RequestParam("id_modo") long modos,
     @RequestParam("titulo") String titulo)
-    
     {
         Optional<Jogo> result_j = jogoRepo.findById(id);
         if(result_j.isPresent()){
@@ -99,18 +99,21 @@ public class JogoController {
                 jogo.setModo(modo.get());
                 jogo.setGeneros(new HashSet<Genero>());
                 jogo.setPlataformas(new HashSet<Plataforma>());
+
                 for(long p_id:plataformas){
-                Optional<Plataforma> result_p = plataformaRepo.findById(p_id);
-                if(result_p.isPresent()){
-                    jogo.getPlataformas().add(result_p.get());
+
+                    Optional<Plataforma> result_p = plataformaRepo.findById(p_id);
+                    if(result_p.isPresent()){
+                        jogo.getPlataformas().add(result_p.get());
+                    }
                 }
-            }
-            for(long g_id:generos){
-                Optional<Genero> result_g = generoRepo.findById(g_id);
-                if(result_g.isPresent()){
-                    jogo.getGeneros().add(result_g.get());
+
+                for(long g_id:generos){
+                    Optional<Genero> result_g = generoRepo.findById(g_id);
+                    if(result_g.isPresent()){
+                        jogo.getGeneros().add(result_g.get());
+                    }
                 }
-            }
             }
            
             jogoRepo.save(jogo);
